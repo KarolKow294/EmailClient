@@ -3,17 +3,21 @@ package com.barosanu.controller;
 import com.barosanu.EmailManager;
 import com.barosanu.view.ViewFactory;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TreeView;
 import javafx.scene.web.WebView;
 
-public class MainWindowController extends BaseController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MainWindowController extends BaseController implements Initializable {
 
     @FXML
     private TableView<?> emailsTableView;
 
     @FXML
-    private MenuItem emailsTreeView;
+    private TreeView<String> emailsTreeView;
 
     @FXML
     private WebView emailsWebView;
@@ -30,5 +34,15 @@ public class MainWindowController extends BaseController {
     @FXML
     void addAccountAction() {
         viewFactory.showLoginWindow();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setUpEmailsTreeView();
+    }
+
+    private void setUpEmailsTreeView() {
+        emailsTreeView.setRoot(emailManager.getFoldersRoot());
+        emailsTreeView.setShowRoot(false);
     }
 }
