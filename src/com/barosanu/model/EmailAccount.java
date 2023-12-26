@@ -9,7 +9,7 @@ public class EmailAccount {
     private Properties properties;
     private Store store;
 
-    public EmailAccount(String address, String password, Properties properties, Store store) {
+    public EmailAccount(String address, String password) {
         this.address = address;
         this.password = password;
         properties = new Properties();
