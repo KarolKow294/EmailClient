@@ -42,6 +42,6 @@
             <TableColumn fx:id="dateCol" prefWidth="95.9999938964844" text="Date" />
         </columns>
       </TableView>
-      <WebView fx:id="emailsWebView" layoutX="246.0" layoutY="125.0" prefHeight="239.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="261.0" />
+      <WebView fx:id="emailWebView" layoutX="246.0" layoutY="125.0" prefHeight="239.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="261.0" />
    </children>
 </AnchorPane>
