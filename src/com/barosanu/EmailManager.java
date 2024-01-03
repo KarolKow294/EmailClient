@@ -5,6 +5,8 @@ import com.barosanu.controller.services.FolderUpdaterService;
 import com.barosanu.model.EmailAccount;
 import com.barosanu.model.EmailMessage;
 import com.barosanu.model.EmailTreeItem;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;
 
 import javax.mail.Flags;
@@ -18,6 +20,11 @@ public class EmailManager {
     private EmailTreeItem<String> selectedFolder;
     private FolderUpdaterService folderUpdaterService;
     private EmailTreeItem<String> foldersRoot = new EmailTreeItem<>("");
+    private ObservableList<EmailAccount> emailAccounts = FXCollections.observableArrayList();
+
+    public ObservableList<EmailAccount> getEmailAccounts() {
+        return emailAccounts;
+    }
 
     public EmailMessage getSelectedMessage() {
         return selectedMessage;
@@ -50,6 +57,7 @@ public class EmailManager {
     }
 
     public void addEmailAccount(EmailAccount emailAccount) {
+        emailAccounts.add(emailAccount);
         EmailTreeItem<String> treeItem = new EmailTreeItem<>(emailAccount.getAddress());
         FetchFoldersService fetchFoldersService = new FetchFoldersService(emailAccount.getStore(), treeItem, folderList);
         fetchFoldersService.start();
