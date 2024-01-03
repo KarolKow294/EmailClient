@@ -82,6 +82,11 @@ public class ViewFactory {
         initializeStage(controller);
     }
 
+    public void showEmailDetailsWindow(){
+        BaseController controller = new EmailDetailsController(emailManager, this, "EmailDetailsWindow.fxml");
+        initializeStage(controller);
+    }
+
     public void showComposeMessageWindow() {
         System.out.println("show composeMessage window called");
 
